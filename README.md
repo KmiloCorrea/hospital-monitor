@@ -1,4 +1,5 @@
 # 🏥 Sistema de Monitoreo de Infraestructura TI
+
 ## Hospital Universitario San Rafael de Tunja
 
 > Plataforma de microservicios para monitoreo en tiempo real de infraestructura tecnológica hospitalaria.
@@ -49,14 +50,14 @@
 
 ## 🔧 Microservicios
 
-| Servicio | Puerto | Responsable | Descripción |
-|----------|--------|-------------|-------------|
-| Auth Service | 3001 | - | Autenticación y autorización JWT |
-| Users Service | 3002 | - | Gestión de usuarios y roles |
-| Devices Service | 3003 | - | Inventario de dispositivos |
-| Locations Service | 3004 | - | Ubicaciones físicas del hospital |
-| Metrics Service | 3005 | - | Métricas de rendimiento en tiempo real |
-| Alerts Service | 3006 | - | Sistema de alertas y notificaciones |
+| Servicio          | Puerto | Responsable | Descripción                            |
+| ----------------- | ------ | ----------- | -------------------------------------- |
+| Auth Service      | 3001   | -           | Autenticación y autorización JWT       |
+| Users Service     | 3002   | -           | Gestión de usuarios y roles            |
+| Devices Service   | 3003   | -           | Inventario de dispositivos             |
+| Locations Service | 3004   | -           | Ubicaciones físicas del hospital       |
+| Metrics Service   | 3005   | -           | Métricas de rendimiento en tiempo real |
+| Alerts Service    | 3006   | -           | Sistema de alertas y notificaciones    |
 
 ## ✅ Requisitos Previos
 
@@ -89,14 +90,12 @@ npm run dev
 
 ## 👥 Equipo de Desarrollo
 
-| Nombre | Servicio Asignado |
-|--------|------------------|
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+| Nombre                           |
+| -------------------------------- |
+| Camilo Enrique Correa Barón      |
+| Andrés Felipe Valderrama Montaña |
+| Kevin Alejandro Rodríguez Vargas |
 
 ---
-*Proyecto Integrador - Diseño e Implementación de Microservicios*
+
+_Proyecto Integrador - Diseño e Implementación de Microservicios_
