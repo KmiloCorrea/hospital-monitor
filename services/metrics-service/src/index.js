@@ -1,0 +1,12 @@
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../../.env') });
+const express = require('express');
+const cors = require('cors');
+const metricsRoutes = require('./routes/metrics.routes');
+const app = express();
+const PORT = process.env.METRICS_SERVICE_PORT || 3005;
+app.use(cors());
+app.use(express.json());
+app.get('/health', (req, res) => res.json({ service: 'metrics-service', status: 'running', timestamp: new Date().toISOString() }));
+app.use('/api/metrics', metricsRoutes);
+app.listen(PORT, () => console.log(`[Metrics Service] Corriendo en puerto ${PORT}`));
+module.exports = app;

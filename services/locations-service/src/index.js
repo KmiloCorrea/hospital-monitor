@@ -1,0 +1,12 @@
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../../.env') });
+const express = require('express');
+const cors = require('cors');
+const locationsRoutes = require('./routes/locations.routes');
+const app = express();
+const PORT = process.env.LOCATIONS_SERVICE_PORT || 3004;
+app.use(cors());
+app.use(express.json());
+app.get('/health', (req, res) => res.json({ service: 'locations-service', status: 'running', timestamp: new Date().toISOString() }));
+app.use('/api/locations', locationsRoutes);
+app.listen(PORT, () => console.log(`[Locations Service] Corriendo en puerto ${PORT}`));
+module.exports = app;

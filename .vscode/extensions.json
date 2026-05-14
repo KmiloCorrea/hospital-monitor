@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "mtxr.sqltools",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense"
+  ]
+}

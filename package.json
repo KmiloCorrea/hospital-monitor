@@ -1,0 +1,14 @@
+{
+  "name": "hospital-monitor",
+  "version": "1.0.0",
+  "description": "Sistema de Monitoreo de Infraestructura TI - Hospital Universitario San Rafael de Tunja",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix gateway\" \"npm run dev --prefix services/auth-service\" \"npm run dev --prefix services/users-service\" \"npm run dev --prefix services/devices-service\" \"npm run dev --prefix services/locations-service\" \"npm run dev --prefix services/metrics-service\" \"npm run dev --prefix services/alerts-service\" \"npm run dev --prefix frontend\"",
+    "install:all": "npm install && npm install --prefix gateway && npm install --prefix services/auth-service && npm install --prefix services/users-service && npm install --prefix services/devices-service && npm install --prefix services/locations-service && npm install --prefix services/metrics-service && npm install --prefix services/alerts-service && npm install --prefix frontend",
+    "db:migrate": "node scripts/migrate.js",
+    "db:seed": "node scripts/seed.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

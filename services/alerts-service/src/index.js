@@ -1,0 +1,12 @@
+require('dotenv').config({ path: require('path').resolve(__dirname, '../../../.env') });
+const express = require('express');
+const cors = require('cors');
+const alertsRoutes = require('./routes/alerts.routes');
+const app = express();
+const PORT = process.env.ALERTS_SERVICE_PORT || 3006;
+app.use(cors());
+app.use(express.json());
+app.get('/health', (req, res) => res.json({ service: 'alerts-service', status: 'running', timestamp: new Date().toISOString() }));
+app.use('/api/alerts', alertsRoutes);
+app.listen(PORT, () => console.log(`[Alerts Service] Corriendo en puerto ${PORT}`));
+module.exports = app;
