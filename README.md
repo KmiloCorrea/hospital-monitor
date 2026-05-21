@@ -52,14 +52,14 @@
 
 ## 🔧 Microservicios
 
-| Servicio          | Puerto | Responsable | Descripción                            |
-| ----------------- | ------ | ----------- | -------------------------------------- |
-| Auth Service      | 3001   | -           | Autenticación y autorización JWT       |
-| Users Service     | 3002   | -           | Gestión de usuarios y roles            |
-| Devices Service   | 3003   | -           | Inventario de dispositivos             |
-| Locations Service | 3004   | -           | Ubicaciones físicas del hospital       |
-| Metrics Service   | 3005   | -           | Métricas de rendimiento en tiempo real |
-| Alerts Service    | 3006   | -           | Sistema de alertas y notificaciones    |
+| Servicio          | Puerto | Descripción                            |
+| ----------------- | ------ | -------------------------------------- |
+| Auth Service      | 3001   | Autenticación y autorización JWT       |
+| Users Service     | 3002   | Gestión de usuarios y roles            |
+| Devices Service   | 3003   | Inventario de dispositivos             |
+| Locations Service | 3004   | Ubicaciones físicas del hospital       |
+| Metrics Service   | 3005   | Métricas de rendimiento en tiempo real |
+| Alerts Service    | 3006   | Sistema de alertas y notificaciones    |
 
 ## ✅ Requisitos Previos
 
