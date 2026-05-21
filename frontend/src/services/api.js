@@ -1,6 +1,3 @@
-// ============================================
-// Configuracion central de API (Axios)
-// ============================================
 import axios from 'axios';
 
 const api = axios.create({
@@ -8,14 +5,12 @@ const api = axios.create({
   timeout: 30000,
 });
 
-// Interceptor: agregar token en cada peticion
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
-// Interceptor: manejar errores globalmente
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -28,14 +23,12 @@ api.interceptors.response.use(
   }
 );
 
-// Auth
 export const authService = {
   login: (email, password) => api.post('/auth/login', { email, password }),
   me: () => api.get('/auth/me'),
   logout: () => api.post('/auth/logout'),
 };
 
-// Devices
 export const devicesService = {
   getAll: (filters = {}) => api.get('/devices', { params: filters }),
   getById: (id) => api.get(`/devices/${id}`),
@@ -46,7 +39,6 @@ export const devicesService = {
   getTypes: () => api.get('/devices/types'),
 };
 
-// Alerts
 export const alertsService = {
   getAll: (filters = {}) => api.get('/alerts', { params: filters }),
   getActive: () => api.get('/alerts/active'),
@@ -56,7 +48,6 @@ export const alertsService = {
   getSeverities: () => api.get('/alerts/severities'),
 };
 
-// Locations
 export const locationsService = {
   getAll: () => api.get('/locations'),
   getById: (id) => api.get(`/locations/${id}`),
@@ -66,7 +57,6 @@ export const locationsService = {
   remove: (id) => api.delete(`/locations/${id}`),
 };
 
-// Metrics
 export const metricsService = {
   getByDevice: (deviceId, params = {}) => api.get(`/metrics/device/${deviceId}`, { params }),
   getLatest: (deviceId) => api.get(`/metrics/device/${deviceId}/latest`),
@@ -75,7 +65,6 @@ export const metricsService = {
   getTypes: () => api.get('/metrics/types'),
 };
 
-// Users
 export const usersService = {
   getAll: () => api.get('/users'),
   getById: (id) => api.get(`/users/${id}`),

@@ -1,7 +1,3 @@
-// ============================================
-// Auth Service - Hospital San Rafael IT Monitor
-// Puerto: 3001
-// ============================================
 require('dotenv').config({ path: require('path').resolve(__dirname, '../../../.env') });
 
 const express = require('express');

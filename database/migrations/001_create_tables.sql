@@ -1,9 +1,3 @@
--- ============================================================
--- Hospital Universitario San Rafael de Tunja
--- Sistema de Monitoreo de Infraestructura TI
--- Migracion 001 - Creacion de tablas
--- ============================================================
-
 CREATE TABLE IF NOT EXISTS roles (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
@@ -12,7 +6,6 @@ CREATE TABLE IF NOT EXISTS roles (
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
@@ -24,7 +17,6 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS locations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -34,7 +26,6 @@ CREATE TABLE IF NOT EXISTS locations (
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS device_types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
@@ -42,7 +33,6 @@ CREATE TABLE IF NOT EXISTS device_types (
     description TEXT,
     created_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS devices (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -61,27 +51,23 @@ CREATE TABLE IF NOT EXISTS devices (
     created_at TIMESTAMP DEFAULT NOW(),
     updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS metric_types (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) UNIQUE NOT NULL,
     unit VARCHAR(20),
     description TEXT,
-    threshold_warning DECIMAL(10,2),
-    threshold_critical DECIMAL(10,2),
+    threshold_warning DECIMAL(10, 2),
+    threshold_critical DECIMAL(10, 2),
     created_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS metrics (
     id SERIAL PRIMARY KEY,
     device_id INTEGER REFERENCES devices(id) ON DELETE CASCADE,
     metric_type_id INTEGER REFERENCES metric_types(id),
-    value DECIMAL(15,4) NOT NULL,
+    value DECIMAL(15, 4) NOT NULL,
     recorded_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE INDEX IF NOT EXISTS idx_metrics_device_time ON metrics(device_id, recorded_at DESC);
-
 CREATE TABLE IF NOT EXISTS alert_severities (
     id SERIAL PRIMARY KEY,
     name VARCHAR(20) UNIQUE NOT NULL,
@@ -89,18 +75,17 @@ CREATE TABLE IF NOT EXISTS alert_severities (
     priority INTEGER,
     created_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE TABLE IF NOT EXISTS alerts (
     id SERIAL PRIMARY KEY,
-    device_id INTEGER REFERENCES devices(id) ON DELETE SET NULL,
-    severity_id INTEGER REFERENCES alert_severities(id),
-    title VARCHAR(200) NOT NULL,
-    message TEXT NOT NULL,
-    is_resolved BOOLEAN DEFAULT FALSE,
-    resolved_by INTEGER REFERENCES users(id),
-    resolved_at TIMESTAMP,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
+    device_id INTEGER REFERENCES devices(id) ON DELETE
+    SET NULL,
+        severity_id INTEGER REFERENCES alert_severities(id),
+        title VARCHAR(200) NOT NULL,
+        message TEXT NOT NULL,
+        is_resolved BOOLEAN DEFAULT FALSE,
+        resolved_by INTEGER REFERENCES users(id),
+        resolved_at TIMESTAMP,
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW()
 );
-
 CREATE INDEX IF NOT EXISTS idx_alerts_active ON alerts(is_resolved, created_at DESC);

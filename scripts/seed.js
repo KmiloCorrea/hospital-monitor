@@ -1,7 +1,3 @@
-// ============================================
-// Script de datos iniciales (seed)
-// Uso: node scripts/seed.js
-// ============================================
 require('dotenv').config();
 const { Pool } = require('pg');
 const fs = require('fs');
@@ -17,7 +13,6 @@ const pool = new Pool({
 });
 
 async function seed() {
-  // Ejecutar seed SQL
   const seedDir = path.join(__dirname, '../database/seeds');
   const files = fs.readdirSync(seedDir).filter(f => f.endsWith('.sql')).sort();
 
@@ -27,7 +22,6 @@ async function seed() {
     console.log(`[Seed] OK: ${file}`);
   }
 
-  // Crear usuario admin por defecto
   const adminRole = await pool.query("SELECT id FROM roles WHERE name='admin'");
   if (adminRole.rows.length > 0) {
     const hash = await bcrypt.hash('Admin1234!', 10);

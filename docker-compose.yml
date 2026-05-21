@@ -1,8 +1,4 @@
-# ============================================
-# Docker Compose - Hospital San Rafael IT Monitor
-# Uso: docker-compose up -d
-# ============================================
-version: '3.9'
+version: "3.9"
 
 services:
   postgres:

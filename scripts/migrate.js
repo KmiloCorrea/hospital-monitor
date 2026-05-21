@@ -1,7 +1,3 @@
-// ============================================
-// Script de migracion de base de datos
-// Uso: node scripts/migrate.js
-// ============================================
 require('dotenv').config();
 const { Pool } = require('pg');
 const fs = require('fs');
