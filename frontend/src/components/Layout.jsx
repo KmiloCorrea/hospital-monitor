@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Monitor, Bell, MapPin, Users, LogOut, Activity, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Monitor, Bell, MapPin, Users, LogOut, Menu, X } from 'lucide-react';
 
 const NAV_ITEMS = [
   { path: '/',          label: 'Dashboard',    icon: LayoutDashboard },
@@ -23,7 +23,6 @@ export default function Layout() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: 'var(--bg-primary)' }}>
-      {/* Sidebar */}
       <aside style={{
         width: open ? '240px' : '64px',
         background: 'var(--bg-secondary)',
@@ -34,8 +33,8 @@ export default function Layout() {
       }}>
         {/* Logo */}
         <div style={{ padding: '20px 16px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--accent-cyan)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-            <Activity size={18} color="#0a0e1a" />
+          <div style={{ width: '36px', height: '36px', flexShrink: 0 }}>
+            <img src="/src/assets/logo-hospital.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           {open && <div>
             <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--accent-cyan)', fontFamily: 'var(--font-mono)', whiteSpace: 'nowrap' }}>HUSRT Monitor</div>
@@ -90,7 +89,6 @@ export default function Layout() {
         </button>
       </aside>
 
-      {/* Main content */}
       <main style={{ flex: 1, padding: '24px', overflowY: 'auto' }}>
         <Outlet />
       </main>

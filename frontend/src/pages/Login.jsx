@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Activity, Lock, Mail, AlertCircle } from 'lucide-react';
+import { Lock, Mail, AlertCircle } from 'lucide-react';
 import { authService } from '../services/api';
 
 export default function Login() {
@@ -26,20 +26,17 @@ export default function Login() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-primary)', padding: '20px' }}>
-      {/* Background grid */}
       <div style={{ position: 'fixed', inset: 0, backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(59,130,246,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(6,182,212,0.05) 0%, transparent 50%)' }} />
 
       <div style={{ width: '100%', maxWidth: '400px', position: 'relative' }}>
-        {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <div style={{ width: '64px', height: '64px', borderRadius: '16px', background: 'linear-gradient(135deg, var(--accent-cyan), var(--accent-blue))', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
-            <Activity size={32} color="#fff" />
+          <div style={{ width: '90px', height: '90px', margin: '0 auto 16px' }}>
+            <img src="/src/assets/logo-hospital.png" alt="Logo Hospital San Rafael" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
           </div>
           <h1 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>Monitor TI</h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '14px' }}>Hospital Universitario San Rafael · Tunja</p>
         </div>
 
-        {/* Card */}
         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: '16px', padding: '32px' }}>
           <h2 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px' }}>Iniciar Sesión</h2>
 
